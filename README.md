@@ -1,16 +1,52 @@
-# React + Vite
+# Pressed & Aged Lounge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website for **Pressed & Aged** — a luxury cigar and vinyl lounge in Nashville, TN. Built with React 19 and Vite.
 
-Currently, two official plugins are available:
+## About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Pressed & Aged is a Nashville listening lounge offering premium cigars, curated vinyl, and elevated evenings. The site covers the full experience: humidor, membership tiers, recurring events, reservations, and contact info.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** — UI
+- **Vite 8** — build tooling and dev server
+- **CSS** — custom properties, scroll-driven reveal animations, responsive layout
+- **FormSubmit** — serverless contact/reservation form
 
-## Expanding the ESLint configuration
+## Sections
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Section | Description |
+|---|---|
+| Hero | Full-screen intro with nav and CTAs |
+| Experience | Three feature cards (cigars, vinyl, conversation) |
+| Humidor | Curated cigar offerings and member lockers |
+| Now Spinning | Marquee artist ticker and vinyl record animation |
+| Membership | Three tiers: The Listener, The Collector, The Patron |
+| Events | Vinyl & Vices, Smoke & Sinatra, Bourbon & B-Sides |
+| Location | Address, hours, phone, and email |
+| Reserve | Reservation request form |
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173` in your browser.
+
+## Scripts
+
+```bash
+npm run dev       # Start dev server
+npm run build     # Production build → dist/
+npm run preview   # Preview production build locally
+npm run lint      # ESLint
+```
+
+## Contact
+
+**15551 Old Hickory Blvd, Nashville, TN 37211**
+[(615) 621-0114](tel:+16156210114) · [contact@pressedandaged.com](mailto:contact@pressedandaged.com)
+
+[Instagram](https://www.instagram.com/pressedandaged/) · [Facebook](https://www.facebook.com/profile.php?id=61578519595709)
