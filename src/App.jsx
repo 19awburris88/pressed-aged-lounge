@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import "./index.css";
 import logo from "./assets/pressed-aged-logo.png";
+import c from "./content.json";
 
 const navSections = [
   { id: "experience", label: "Experience" },
@@ -10,93 +11,10 @@ const navSections = [
   { id: "events",     label: "Events" },
 ];
 
-const memberships = [
-  {
-    name: "The Listener",
-    label: "Social Access",
-    perks: [
-      "Priority reservations",
-      "Member listening nights",
-      "Early event access",
-      "Curated music programming",
-    ],
-    featured: false,
-  },
-  {
-    name: "The Collector",
-    label: "Humidor Access",
-    perks: [
-      "Private locker eligibility",
-      "Cigar storage",
-      "Member-only pairings",
-      "Preferred lounge seating",
-    ],
-    featured: false,
-  },
-  {
-    name: "The Patron",
-    label: "Premier Access",
-    perks: [
-      "Invite-only evenings",
-      "Private tastings",
-      "After-hours experiences",
-      "Concierge booking",
-    ],
-    featured: true,
-  },
-];
-
-const events = [
-  {
-    title: "Vinyl & Vices",
-    day: "Thursdays",
-    copy: "Classic records, premium cigars, and slow conversation in a low-lit listening room.",
-  },
-  {
-    title: "Smoke & Sinatra",
-    day: "Monthly",
-    copy: "Timeless vocals, tailored cigar pairings, and old-school lounge energy.",
-  },
-  {
-    title: "Bourbon & B-Sides",
-    day: "Select Fridays",
-    copy: "Rare pours, deep cuts, and curated cigars for the collector at heart.",
-  },
-];
-
-const artists = [
-  "Sade",
-  "Miles Davis",
-  "Outkast",
-  "D'Angelo",
-  "Anita Baker",
-  "The Isley Brothers",
-  "John Coltrane",
-  "Erykah Badu",
-  "Nina Simone",
-  "Marvin Gaye",
-];
-
-const testimonials = [
-  {
-    quote:
-      "Walking into Pressed & Aged feels like stepping into the best version of a Saturday night. The energy, the music, the smoke — there's nothing like it in Nashville.",
-    name: "Marcus T.",
-    title: "The Patron Member",
-  },
-  {
-    quote:
-      "The humidor selection is thoughtful without being overwhelming. They actually know what they're putting in there — and the pairings? Outstanding.",
-    name: "Damon R.",
-    title: "The Collector Member",
-  },
-  {
-    quote:
-      "I brought clients here for an evening and the lounge did all the talking. The vibe, the service, the vinyl — it closed the deal before the cigars were finished.",
-    name: "Priya N.",
-    title: "The Listener Member",
-  },
-];
+const renderLines = (lines) =>
+  lines.map((line, i, arr) => (
+    <Fragment key={i}>{line}{i < arr.length - 1 && <br />}</Fragment>
+  ));
 
 function App() {
   const [menuOpen, setMenuOpen]         = useState(false);
@@ -206,11 +124,8 @@ function App() {
 
         {/* ── Hero ── */}
         <section className="hero" aria-label="Hero">
-          {/* Parallax background */}
           <div className="hero-bg" style={{ transform: `translateY(${parallax}px)` }} />
-          {/* Ambient glow overlay */}
           <div className="hero-ambient" />
-          {/* Smoke / haze layers */}
           <div className="smoke-layer smoke-1" aria-hidden="true" />
           <div className="smoke-layer smoke-2" aria-hidden="true" />
           <div className="smoke-layer smoke-3" aria-hidden="true" />
@@ -242,20 +157,14 @@ function App() {
           </nav>
 
           <div className="hero-content">
-            <p className="eyebrow reveal">Luxury cigar &amp; vinyl lounge</p>
+            <p className="eyebrow reveal">{c.hero.eyebrow}</p>
             <h1 className="reveal reveal-d1">
-              Analog culture.
-              <br />
-              Modern ritual.
+              {renderLines(c.hero.heading)}
             </h1>
-            <p className="hero-copy reveal reveal-d2">
-              A Nashville listening lounge designed for premium cigars, curated
-              vinyl, timeless conversation, and elevated evenings worth
-              remembering.
-            </p>
+            <p className="hero-copy reveal reveal-d2">{c.hero.body}</p>
             <div className="hero-actions reveal reveal-d3">
-              <a href="#reserve"    className="primary-button">Reserve an Evening</a>
-              <a href="#membership" className="secondary-button">Explore Membership</a>
+              <a href="#reserve"    className="primary-button">{c.hero.ctaPrimary}</a>
+              <a href="#membership" className="secondary-button">{c.hero.ctaSecondary}</a>
             </div>
           </div>
 
@@ -269,34 +178,14 @@ function App() {
         <section id="experience" className="section">
           <div className="split-heading reveal">
             <div>
-              <p className="eyebrow">The Experience</p>
-              <h2>More than a lounge. A sanctuary for ritual.</h2>
+              <p className="eyebrow">{c.experience.eyebrow}</p>
+              <h2>{c.experience.heading}</h2>
             </div>
-            <p>
-              Pressed &amp; Aged is built for people who still believe in presence —
-              the sound of a needle touching wax, the pace of a well-aged cigar,
-              and the kind of conversation that cannot be rushed.
-            </p>
+            <p>{c.experience.body}</p>
           </div>
 
           <div className="feature-grid">
-            {[
-              {
-                num: "01",
-                title: "Premium Cigars",
-                copy: "A refined humidor experience with hand-selected cigars, thoughtful pairings, and a collector's eye for quality.",
-              },
-              {
-                num: "02",
-                title: "Curated Vinyl",
-                copy: "Jazz, soul, hip-hop, R&B, and deep cuts selected to shape the mood of every evening.",
-              },
-              {
-                num: "03",
-                title: "Timeless Conversation",
-                copy: "A room made for founders, creatives, travelers, locals, and people who appreciate atmosphere.",
-              },
-            ].map((f, i) => (
+            {c.experience.features.map((f, i) => (
               <article className={`feature-card reveal reveal-d${i + 1}`} key={f.num}>
                 <span className="feature-num">{f.num}</span>
                 <h3>{f.title}</h3>
@@ -311,27 +200,19 @@ function App() {
           <div className="image-split">
             <div className="image-panel humidor-image reveal">
               <div>
-                <p className="panel-label">Tonight's Pairing</p>
-                <h3>
-                  Aged Maduro
-                  <br />+ Barrel Proof Pour
-                </h3>
+                <p className="panel-label">{c.humidor.pairingLabel}</p>
+                <h3>{renderLines(c.humidor.pairingHeading)}</h3>
               </div>
             </div>
 
             <div className="content-panel reveal reveal-d1">
-              <p className="eyebrow">The Humidor</p>
-              <h2>Curated smokes for refined palates.</h2>
-              <p>
-                From everyday favorites to special occasion selections, the humidor
-                is intentional — never overwhelming, never generic, always selected
-                with taste.
-              </p>
+              <p className="eyebrow">{c.humidor.eyebrow}</p>
+              <h2>{c.humidor.heading}</h2>
+              <p>{c.humidor.body}</p>
               <div className="mini-grid">
-                <div>Staff Picks</div>
-                <div>Rare Finds</div>
-                <div>Member Lockers</div>
-                <div>Pairing Notes</div>
+                {c.humidor.tags.map((tag) => (
+                  <div key={tag}>{tag}</div>
+                ))}
               </div>
             </div>
           </div>
@@ -340,17 +221,14 @@ function App() {
         {/* ── Now Spinning ── */}
         <section id="spinning" className="section spinning-section">
           <div className="section-heading reveal">
-            <p className="eyebrow">Now Spinning</p>
-            <h2>Music sets the room.</h2>
-            <p>
-              Weekly vinyl rotations create a living soundtrack for the lounge —
-              soulful, intentional, and unmistakably Nashville.
-            </p>
+            <p className="eyebrow">{c.spinning.eyebrow}</p>
+            <h2>{c.spinning.heading}</h2>
+            <p>{c.spinning.body}</p>
           </div>
 
           <div className="marquee-wrapper reveal reveal-d1" aria-hidden="true">
             <div className="marquee-track">
-              {[...artists, ...artists].map((a, i) => (
+              {[...c.spinning.artists, ...c.spinning.artists].map((a, i) => (
                 <span key={i} className="marquee-item">
                   {a} <span className="marquee-dot">◆</span>
                 </span>
@@ -361,8 +239,8 @@ function App() {
           <div className="image-split spinning-split">
             <div className="image-panel vinyl-image reveal reveal-d2">
               <div>
-                <p className="panel-label">On the Turntable</p>
-                <h3>The Sunday<br />Session</h3>
+                <p className="panel-label">{c.spinning.panelLabel}</p>
+                <h3>{renderLines(c.spinning.panelHeading)}</h3>
               </div>
             </div>
 
@@ -375,10 +253,7 @@ function App() {
                   <span>P&amp;A</span>
                 </div>
               </div>
-              <p>
-                Slow, intentional, and unmistakably Nashville. Jazz, soul, and
-                quiet-storm R&amp;B from a room that knows how to listen.
-              </p>
+              <p>{c.spinning.recordText}</p>
             </div>
           </div>
         </section>
@@ -386,16 +261,13 @@ function App() {
         {/* ── Membership ── */}
         <section id="membership" className="section dark-section">
           <div className="section-heading centered reveal">
-            <p className="eyebrow">Membership</p>
-            <h2>Belong to the room.</h2>
-            <p>
-              Membership transforms Pressed &amp; Aged from a place you visit into a
-              culture you are part of.
-            </p>
+            <p className="eyebrow">{c.membership.eyebrow}</p>
+            <h2>{c.membership.heading}</h2>
+            <p>{c.membership.body}</p>
           </div>
 
           <div className="membership-grid">
-            {memberships.map((m, i) => (
+            {c.membership.tiers.map((m, i) => (
               <article
                 className={`membership-card reveal reveal-d${i + 1}${m.featured ? " featured" : ""}`}
                 key={m.name}
@@ -409,7 +281,7 @@ function App() {
                   ))}
                 </ul>
                 <a
-                  href="mailto:contact@pressedandaged.com"
+                  href={`mailto:${c.location.email}`}
                   className={`card-button${m.featured ? " gold-button" : ""}`}
                 >
                   Join Waitlist
@@ -422,16 +294,13 @@ function App() {
         {/* ── Events ── */}
         <section id="events" className="section">
           <div className="section-heading reveal">
-            <p className="eyebrow">Events</p>
-            <h2>Nights worth dressing for.</h2>
-            <p>
-              Programming that turns the lounge into a destination for music
-              lovers, cigar collectors, and culture seekers.
-            </p>
+            <p className="eyebrow">{c.events.eyebrow}</p>
+            <h2>{c.events.heading}</h2>
+            <p>{c.events.body}</p>
           </div>
 
           <div className="event-grid">
-            {events.map((ev, i) => (
+            {c.events.list.map((ev, i) => (
               <article className={`event-card reveal reveal-d${i + 1}`} key={ev.title}>
                 <p className="event-day">{ev.day}</p>
                 <h3>{ev.title}</h3>
@@ -444,12 +313,12 @@ function App() {
         {/* ── Testimonials ── */}
         <section className="section dark-section">
           <div className="section-heading centered reveal">
-            <p className="eyebrow">Member Stories</p>
-            <h2>Told by the room.</h2>
+            <p className="eyebrow">{c.testimonials.eyebrow}</p>
+            <h2>{c.testimonials.heading}</h2>
           </div>
 
           <div className="testimonials-grid">
-            {testimonials.map((t, i) => (
+            {c.testimonials.list.map((t, i) => (
               <figure className={`testimonial-card reveal reveal-d${i + 1}`} key={t.name}>
                 <div className="testimonial-quote-mark" aria-hidden="true">"</div>
                 <blockquote className="testimonial-text">{t.quote}</blockquote>
@@ -466,31 +335,28 @@ function App() {
         <section className="section location-section">
           <div className="location-grid">
             <div className="location-content reveal">
-              <p className="eyebrow">Find Us</p>
-              <h2>Nashville's best-kept listening secret.</h2>
-              <p>
-                Located in the heart of Nashville, Pressed &amp; Aged is a
-                destination built for those who appreciate the slower things in
-                life — and the better ones.
-              </p>
+              <p className="eyebrow">{c.location.eyebrow}</p>
+              <h2>{c.location.heading}</h2>
+              <p>{c.location.body}</p>
               <address className="location-details">
                 <div className="location-detail">
                   <p className="detail-label">Address</p>
-                  <p>15551 Old Hickory Blvd</p>
-                  <p>Nashville, TN 37211</p>
+                  <p>{c.location.addressLine1}</p>
+                  <p>{c.location.addressLine2}</p>
                 </div>
                 <div className="location-detail">
                   <p className="detail-label">Hours</p>
-                  <p>Sun – Wed &nbsp; 10am – 10pm</p>
-                  <p>Thu – Sat &nbsp;&nbsp;&nbsp; 10am – 11pm</p>
+                  {c.location.hours.map((h) => (
+                    <p key={h.days}>{h.days} &nbsp; {h.time}</p>
+                  ))}
                 </div>
                 <div className="location-detail">
                   <p className="detail-label">Phone</p>
-                  <a href="tel:+16156210114">(615) 621-0114</a>
+                  <a href={c.location.phoneHref}>{c.location.phone}</a>
                 </div>
                 <div className="location-detail">
                   <p className="detail-label">Email</p>
-                  <a href="mailto:contact@pressedandaged.com">contact@pressedandaged.com</a>
+                  <a href={`mailto:${c.location.email}`}>{c.location.email}</a>
                 </div>
               </address>
               <a href="#reserve" className="primary-button location-reserve-btn">Reserve an Evening</a>
@@ -499,7 +365,7 @@ function App() {
             <div className="location-map-wrap reveal reveal-d1">
               <iframe
                 title="Pressed &amp; Aged — 15551 Old Hickory Blvd, Nashville, TN"
-                src="https://maps.google.com/maps?q=15551+Old+Hickory+Blvd,+Nashville,+TN+37211&output=embed"
+                src={c.location.mapEmbedUrl}
                 className="location-map"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -513,13 +379,9 @@ function App() {
         <section id="reserve" className="cta-section">
           <div className="reserve-inner">
             <div className="reserve-copy reveal">
-              <p className="eyebrow">Private Events &amp; Reservations</p>
-              <h2>Reserve the mood before the night begins.</h2>
-              <p>
-                For date nights, celebrations, private gatherings, and evenings
-                where the soundtrack matters. Fill out the form and we'll be in
-                touch within 24 hours.
-              </p>
+              <p className="eyebrow">{c.reserve.eyebrow}</p>
+              <h2>{c.reserve.heading}</h2>
+              <p>{c.reserve.body}</p>
             </div>
 
             <form
@@ -592,12 +454,10 @@ function App() {
         <footer>
           <div className="footer-brand-block">
             <img src={logo} alt="Pressed &amp; Aged — Cigar &amp; Vinyl Lounge" className="footer-logo" />
-            <p className="footer-tagline">
-              Premium cigars. Curated vinyl. Timeless conversation.
-            </p>
+            <p className="footer-tagline">{c.footer.tagline}</p>
             <div className="footer-socials">
               <a
-                href="https://www.facebook.com/profile.php?id=61578519595709"
+                href={c.footer.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Pressed &amp; Aged on Facebook"
@@ -607,7 +467,7 @@ function App() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/pressedandaged/"
+                href={c.footer.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Pressed &amp; Aged on Instagram"
@@ -630,9 +490,9 @@ function App() {
           </nav>
 
           <div className="footer-contact">
-            <p>15551 Old Hickory Blvd, Nashville, TN 37211</p>
-            <a href="tel:+16156210114">(615) 621-0114</a>
-            <a href="mailto:contact@pressedandaged.com">contact@pressedandaged.com</a>
+            <p>{c.location.addressLine1}, {c.location.addressLine2}</p>
+            <a href={c.location.phoneHref}>{c.location.phone}</a>
+            <a href={`mailto:${c.location.email}`}>{c.location.email}</a>
           </div>
         </footer>
       </main>

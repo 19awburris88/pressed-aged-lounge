@@ -1,0 +1,178 @@
+{
+  "_readme": "Edit the values in this file to update text on the website. Do NOT change any key names — only change the values. Multi-line headings use arrays; each item becomes a separate line.",
+
+  "hero": {
+    "eyebrow": "Luxury cigar & vinyl lounge",
+    "heading": ["Analog culture.", "Modern ritual."],
+    "body": "A Nashville listening lounge designed for premium cigars, curated vinyl, timeless conversation, and elevated evenings worth remembering.",
+    "ctaPrimary": "Reserve an Evening",
+    "ctaSecondary": "Explore Membership"
+  },
+
+  "experience": {
+    "eyebrow": "The Experience",
+    "heading": "More than a lounge. A sanctuary for ritual.",
+    "body": "Pressed & Aged is built for people who still believe in presence — the sound of a needle touching wax, the pace of a well-aged cigar, and the kind of conversation that cannot be rushed.",
+    "features": [
+      {
+        "num": "01",
+        "title": "Premium Cigars",
+        "copy": "A refined humidor experience with hand-selected cigars, thoughtful pairings, and a collector's eye for quality."
+      },
+      {
+        "num": "02",
+        "title": "Curated Vinyl",
+        "copy": "Jazz, soul, hip-hop, R&B, and deep cuts selected to shape the mood of every evening."
+      },
+      {
+        "num": "03",
+        "title": "Timeless Conversation",
+        "copy": "A room made for founders, creatives, travelers, locals, and people who appreciate atmosphere."
+      }
+    ]
+  },
+
+  "humidor": {
+    "pairingLabel": "Tonight's Pairing",
+    "pairingHeading": ["Aged Maduro", "+ Barrel Proof Pour"],
+    "eyebrow": "The Humidor",
+    "heading": "Curated smokes for refined palates.",
+    "body": "From everyday favorites to special occasion selections, the humidor is intentional — never overwhelming, never generic, always selected with taste.",
+    "tags": ["Staff Picks", "Rare Finds", "Member Lockers", "Pairing Notes"]
+  },
+
+  "spinning": {
+    "eyebrow": "Now Spinning",
+    "heading": "Music sets the room.",
+    "body": "Weekly vinyl rotations create a living soundtrack for the lounge — soulful, intentional, and unmistakably Nashville.",
+    "panelLabel": "On the Turntable",
+    "panelHeading": ["The Sunday", "Session"],
+    "recordText": "Slow, intentional, and unmistakably Nashville. Jazz, soul, and quiet-storm R&B from a room that knows how to listen.",
+    "artists": [
+      "Sade",
+      "Miles Davis",
+      "Outkast",
+      "D'Angelo",
+      "Anita Baker",
+      "The Isley Brothers",
+      "John Coltrane",
+      "Erykah Badu",
+      "Nina Simone",
+      "Marvin Gaye"
+    ]
+  },
+
+  "membership": {
+    "eyebrow": "Membership",
+    "heading": "Belong to the room.",
+    "body": "Membership transforms Pressed & Aged from a place you visit into a culture you are part of.",
+    "tiers": [
+      {
+        "name": "The Listener",
+        "label": "Social Access",
+        "perks": [
+          "Priority reservations",
+          "Member listening nights",
+          "Early event access",
+          "Curated music programming"
+        ],
+        "featured": false
+      },
+      {
+        "name": "The Collector",
+        "label": "Humidor Access",
+        "perks": [
+          "Private locker eligibility",
+          "Cigar storage",
+          "Member-only pairings",
+          "Preferred lounge seating"
+        ],
+        "featured": false
+      },
+      {
+        "name": "The Patron",
+        "label": "Premier Access",
+        "perks": [
+          "Invite-only evenings",
+          "Private tastings",
+          "After-hours experiences",
+          "Concierge booking"
+        ],
+        "featured": true
+      }
+    ]
+  },
+
+  "events": {
+    "eyebrow": "Events",
+    "heading": "Nights worth dressing for.",
+    "body": "Programming that turns the lounge into a destination for music lovers, cigar collectors, and culture seekers.",
+    "list": [
+      {
+        "title": "Vinyl & Vices",
+        "day": "Thursdays",
+        "copy": "Classic records, premium cigars, and slow conversation in a low-lit listening room."
+      },
+      {
+        "title": "Smoke & Sinatra",
+        "day": "Monthly",
+        "copy": "Timeless vocals, tailored cigar pairings, and old-school lounge energy."
+      },
+      {
+        "title": "Bourbon & B-Sides",
+        "day": "Select Fridays",
+        "copy": "Rare pours, deep cuts, and curated cigars for the collector at heart."
+      }
+    ]
+  },
+
+  "testimonials": {
+    "eyebrow": "Member Stories",
+    "heading": "Told by the room.",
+    "list": [
+      {
+        "quote": "Walking into Pressed & Aged feels like stepping into the best version of a Saturday night. The energy, the music, the smoke — there's nothing like it in Nashville.",
+        "name": "Marcus T.",
+        "title": "The Patron Member"
+      },
+      {
+        "quote": "The humidor selection is thoughtful without being overwhelming. They actually know what they're putting in there — and the pairings? Outstanding.",
+        "name": "Damon R.",
+        "title": "The Collector Member"
+      },
+      {
+        "quote": "I brought clients here for an evening and the lounge did all the talking. The vibe, the service, the vinyl — it closed the deal before the cigars were finished.",
+        "name": "Priya N.",
+        "title": "The Listener Member"
+      }
+    ]
+  },
+
+  "location": {
+    "eyebrow": "Find Us",
+    "heading": "Nashville's best-kept listening secret.",
+    "body": "Located in the heart of Nashville, Pressed & Aged is a destination built for those who appreciate the slower things in life — and the better ones.",
+    "addressLine1": "15551 Old Hickory Blvd",
+    "addressLine2": "Nashville, TN 37211",
+    "hours": [
+      { "days": "Sun – Wed", "time": "10am – 10pm" },
+      { "days": "Thu – Sat", "time": "10am – 11pm" }
+    ],
+    "phone": "(615) 621-0114",
+    "phoneHref": "tel:+16156210114",
+    "email": "contact@pressedandaged.com",
+    "mapEmbedUrl": "https://maps.google.com/maps?q=15551+Old+Hickory+Blvd,+Nashville,+TN+37211&output=embed"
+  },
+
+  "reserve": {
+    "eyebrow": "Private Events & Reservations",
+    "heading": "Reserve the mood before the night begins.",
+    "body": "For date nights, celebrations, private gatherings, and evenings where the soundtrack matters. Fill out the form and we'll be in touch within 24 hours."
+  },
+
+  "footer": {
+    "tagline": "Premium cigars. Curated vinyl. Timeless conversation.",
+    "facebookUrl": "https://www.facebook.com/profile.php?id=61578519595709",
+    "instagramUrl": "https://www.instagram.com/pressedandaged/"
+  }
+}
